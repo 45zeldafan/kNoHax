@@ -1,0 +1,22 @@
+name: kNoHax
+main: kookaburra.minecraft.plugins.nohax.kNoHax
+version: 1.0
+website: http://www.vbgames.net/
+author: joshcvb
+commands:
+    lag:
+        description:
+        usage:
+    resetlag:
+        description:
+        usage:
+permissions:
+    NoHax.Fly:
+        description: Is player allowed to fly?
+        default: op
+    NoHax.Speed:
+        description: Is player allowed to speed?
+        default: op
+    NoHax.ViewAlerts:
+        description: Will player see hacking alerts?
+        default: op
