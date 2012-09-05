@@ -1,9 +1,7 @@
 package kookaburra.minecraft.plugins.nohax;
 
-import java.io.PrintStream;
 import kookaburra.minecraft.plugins.nohax.forcefield.ForcefieldListener;
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginDescriptionFile;

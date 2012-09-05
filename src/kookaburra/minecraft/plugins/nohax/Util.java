@@ -14,7 +14,6 @@ import kookaburra.minecraft.plugins.nohax.forcefield.ForcefieldChecker;
 import org.bukkit.Location;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 
 public class Util
 {
@@ -23,7 +22,7 @@ public class Util
 
   public static void Initialize(JavaPlugin plugin)
   {
-    plugin = plugin;
+    Util.plugin = plugin;
     server = plugin.getServer();
     server.getScheduler().scheduleSyncRepeatingTask(plugin, new MoveCheck(server), 41L, 40L);
     server.getScheduler().scheduleSyncRepeatingTask(plugin, new Alert(), 6007L, 6000L);
@@ -61,8 +60,7 @@ public class Util
   {
     BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
     String ret = new String(new byte[0], "UTF-8");
-    String line;
-    while ((line = in.readLine()) != null)
+    while ((in.readLine()) != null)
     {
       String line1 = null;
       ret = ret + line1;
@@ -133,8 +131,6 @@ public class Util
     }
     catch (Exception e)
     {
-      double d1;
-      d1 = 0.0D;
     }
     if ((x1 > x2) && (y1 > y2))
     {

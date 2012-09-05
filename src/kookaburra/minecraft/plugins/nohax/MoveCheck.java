@@ -3,6 +3,8 @@ package kookaburra.minecraft.plugins.nohax;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
+
+import kookaburra.minecraft.plugins.nohax.MoveCheck.Jump;
 import kookaburra.minecraft.plugins.nohax.alerts.Alert;
 import kookaburra.minecraft.plugins.nohax.alerts.AlertLevel;
 import kookaburra.minecraft.plugins.nohax.alerts.AlertType;
@@ -48,7 +50,6 @@ public class MoveCheck
   }
 
   private static Object MoveLog(Player player, Location to) {
-	// TODO Auto-generated method stub
 	return null;
 }
 
@@ -105,7 +106,7 @@ public static void Invalidate(Player player, long time)
         try {
           synchronized ((ArrayList)Moves.get(player))
           {
-            ArrayList jumps = GetJumps((ArrayList)Moves.get(player));
+            ArrayList<Jump> jumps = GetJumps((ArrayList)Moves.get(player));
 
             for (Jump jump : jumps)
             {
@@ -158,7 +159,8 @@ public static void Invalidate(Player player, long time)
     return "(" + l.getX() + ", " + l.getY() + ", " + l.getZ() + ")";
   }
 
-  public static ArrayList<Jump> GetJumps(ArrayList<MoveLog> moves) {
+  @SuppressWarnings("unchecked")
+public static ArrayList<Jump> GetJumps(ArrayList<MoveLog> moves) {
     int inc = 1;
 
     ArrayList jumps = new ArrayList();

@@ -1,14 +1,9 @@
 package kookaburra.minecraft.plugins.nohax;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import kookaburra.minecraft.plugins.nohax.SpamCheck.ChatMessage;
-
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
