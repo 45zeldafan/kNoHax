@@ -180,6 +180,7 @@ public static ArrayList<Jump> GetJumps(ArrayList<MoveLog> moves) {
         MoveCheck tmp79_76 = Instance; tmp79_76.getClass(); Jump jump = new Jump((MoveLog)moves.get(startInc), (MoveLog)moves.get((inc + startInc - 1) / 2), (MoveLog)moves.get(inc - 1));
         jump.isOnGround = true;
         jumps.add(jump);
+        MoveLog end;
       }
 
       if (inc >= moves.size())
