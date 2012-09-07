@@ -2,12 +2,10 @@ package kookaburra.minecraft.plugins.nohax.alerts;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.PrintStream;
 import java.util.Hashtable;
 import kookaburra.minecraft.plugins.nohax.Permissions;
 import kookaburra.minecraft.plugins.nohax.Util;
 import org.bukkit.ChatColor;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
 
@@ -15,25 +13,25 @@ import org.bukkit.entity.Player;
 public class Alert
   implements Runnable
 {
-  public static Hashtable<String, Hashtable<AlertType, Hashtable<AlertLevel, Integer>>> Recent = new Hashtable();
+  public static Hashtable<String, Hashtable<AlertType, Hashtable<AlertLevel, Integer>>> Recent = new Hashtable<String, Hashtable<AlertType, Hashtable<AlertLevel, Integer>>>();
 
   public static void Add(Player player, AlertType type, AlertLevel level)
   {
     String name = ChatColor.stripColor(player.getName());
 
-    Hashtable types = (Hashtable)Recent.get(name);
+    Hashtable<AlertType, Hashtable<AlertLevel, Integer>> types = (Hashtable<AlertType, Hashtable<AlertLevel, Integer>>)Recent.get(name);
 
     if (types == null)
     {
-      types = new Hashtable();
+      types = new Hashtable<AlertType, Hashtable<AlertLevel, Integer>>();
       Recent.put(name, types);
     }
 
-    Hashtable levels = (Hashtable)types.get(type);
+    Hashtable<AlertLevel, Integer> levels = (Hashtable<AlertLevel, Integer>)types.get(type);
 
     if (levels == null)
     {
-      levels = new Hashtable();
+      levels = new Hashtable<AlertLevel, Integer>();
       types.put(type, levels);
     }
 
@@ -78,29 +76,9 @@ public class Alert
 
       file.createNewFile();
 
-      FileWriter fout = new FileWriter(file);
-
-      for (String player : Recent.keySet())
-      {
-        fout.write("*****" + player + "*****\n");
-        Hashtable types = (Hashtable)Recent.get(player);
-
-        for (AlertType type : types.keySet())
-        {
-          Hashtable levels = (Hashtable)types.get(type);
-
-          for (AlertLevel level : levels.keySet())
-          {
-            Integer count = (Integer)levels.get(level);
-
-            fout.write(type.name() + "[" + level.name() + "]: " + count + "\n");
-          }
-        }
-        fout.write("\n");
-      }
-
-      fout.close();
+      new FileWriter(file);
     }
+
     catch (Exception ex)
     {
       System.out.println("Error when saving kNoHax log file: " + ex);
