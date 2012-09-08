@@ -27,10 +27,7 @@ public class ForcefieldListener
 
   @EventHandler(priority=EventPriority.HIGHEST)
   public void OnPlayerInteract(PlayerAnimationEvent ev) {
-    if (ev.getAnimationType() == PlayerAnimationType.ARM_SWING)
-    {
-      ev.getPlayer().getName().equals("hclewk2");
-    }
+    if (ev.getAnimationType() == PlayerAnimationType.ARM_SWING);
   }
 
   @EventHandler(priority=EventPriority.HIGHEST)
