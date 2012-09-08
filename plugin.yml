@@ -1,6 +1,6 @@
 name: kNoHax
 main: kookaburra.minecraft.plugins.nohax.kNoHax
-version: 1.0
+version: 1.4
 website: http://www.vbgames.net/
 author: joshcvb
 commands:

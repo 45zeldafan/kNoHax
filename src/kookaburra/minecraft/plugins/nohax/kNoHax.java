@@ -12,6 +12,11 @@ public class kNoHax extends JavaPlugin
 {
   public void onDisable()
   {
+	  PluginDescriptionFile pdfFile = getDescription();
+
+	  Util.Initialize(this);
+	    
+	  System.out.println(pdfFile.getName() + " version " + pdfFile.getVersion() + " is disabled!");
   }
 
   public void onLoad()

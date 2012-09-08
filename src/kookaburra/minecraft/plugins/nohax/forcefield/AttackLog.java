@@ -35,7 +35,7 @@ public class AttackLog
 
   public double getAttackSpeed()
   {
-    if (this.AttackCount < 15)
+    if (this.AttackCount < 17)
     {
       return 1.0D;
     }
